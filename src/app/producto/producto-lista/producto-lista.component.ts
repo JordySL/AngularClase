@@ -42,14 +42,15 @@ export class ProductoListaComponent implements OnInit {
         console.log("exito descarga");
       });
   }
-
-  clickShare() {
-  }
-
   openNewProducto() {
     let dialogRef = this.dialog.open(NewProductoComponent);
     dialogRef.afterClosed().subscribe(() => {
       this.getProductos(1, 5);
     });
+  }
+  delete(id: number):void{
+    this._productoService.deleteProducto(id)
+    .subscribe((res:any)=>{
+    })
   }
 }

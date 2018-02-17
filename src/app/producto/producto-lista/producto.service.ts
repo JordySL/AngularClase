@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from './../../../environments/environment';
 import { Producto } from './../models/producto';
 import { Observable } from 'rxjs/Observable';
-import { Headers, Http, Response,RequestOptions,ResponseContentType } from '@angular/http';
+import { Headers, Http, Response, RequestOptions, ResponseContentType } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as FileSaver from 'file-saver';
 @Injectable()
@@ -15,7 +15,7 @@ export class ProductoService {
   getProductos(offSet: Number, perPage: Number): Observable<Producto[]> {
     const url = `${this.urlService}api/producto/GetProductos`;
     const params = { offSet: offSet, perPage: perPage }
-    const header = new Headers({'Content-Type': 'application/json'});
+    const header = new Headers({ 'Content-Type': 'application/json' });
     return this._http.post(url, params, { headers: header })
       .map((response: any) => {
         return response.json()
@@ -36,5 +36,12 @@ export class ProductoService {
         });
         FileSaver.saveAs(blob, archivo);
       });
+  }
+  deleteProducto(id: number): Observable<void> {
+    const url = `${this.urlService}api/producto`;
+    const header = new Headers({ 'Content-Type': 'application/json' });
+    return this._http.delete(`${url}/${id}`, {headers:header})
+    .map((response:any)=>{
+    })
   }
 }
