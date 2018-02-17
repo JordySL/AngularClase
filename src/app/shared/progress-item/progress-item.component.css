@@ -1,0 +1,5 @@
+.item{
+    width: 100px;
+    height: 100px;
+    box-shadow: .9em 0 .6em -0.4em rgba(224,224,224,0.8);
+}

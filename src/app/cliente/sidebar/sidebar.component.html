@@ -1,0 +1,5 @@
+<div>
+    <div *ngFor="let menuItem of menuItems" routerLinkActive="active">
+        <a mat-list-item routerLink="{{menuItem.url}}" routerLinkActive="active">{{menuItem.displayName}}</a>
+    </div>
+</div>

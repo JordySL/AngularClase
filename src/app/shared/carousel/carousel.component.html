@@ -1,0 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <div class="button-wrapper">
+    <button class="actions-buttons left" (click)="preview()" *ngIf="leftActionButtonVisible">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+  <div class="carousel-wrapper" [ngStyle]="carouselWrapperStyle">
+    <ul class="carousel-inner1" #carousel>
+      <li *ngFor="let item of items;" class="carousel-item">
+        <ng-container [ngTemplateOutlet]="item.tpl">
+
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+  <div class="button-wrapper">
+    <button class="actions-buttons right" (click)="next()" *ngIf="rightActionButtonVisible">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

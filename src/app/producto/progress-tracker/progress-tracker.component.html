@@ -1,0 +1,9 @@
+<div #progressTracker *ngIf="items.length>0">
+    <carousel [contentWidth]="contentWidth">
+        <ng-container *ngFor="let item of items;">
+            <ng-container *carouselItem>
+                <app-progress-item [item]="item"></app-progress-item>
+            </ng-container>
+        </ng-container>
+    </carousel>
+</div>

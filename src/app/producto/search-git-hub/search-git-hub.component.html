@@ -1,0 +1,16 @@
+<input class="form-control" type="search" [formControl]="searchControl">
+
+<div *ngIf="isLoading">
+    Buscando Data.
+</div>
+<div *ngFor="let user of users" class="media">
+    <div class="media-left">
+        <a [routerLink]="['user',user.login,user.score]">
+            <img class="media-object img" src="{{user.avatar_url}}">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{user.login}}</h4>
+        Score:{{user.score}}
+    </div>
+</div>
