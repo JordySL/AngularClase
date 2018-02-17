@@ -35,7 +35,6 @@ export class ProductoListaComponent implements OnInit {
     const offset = event.pageIndex + 1;
     this.getProductos(offset, pageSize);
   }
-
   descargar(archivo: string): void {
     this._productoService.getArchivo(archivo)
       .subscribe(() => {
@@ -51,6 +50,7 @@ export class ProductoListaComponent implements OnInit {
   delete(id: number):void{
     this._productoService.deleteProducto(id)
     .subscribe((res:any)=>{
+      this.getProductos(1,5);
     })
   }
 }
